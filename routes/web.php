@@ -13,39 +13,18 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/start', function () {
-    return view('welcome');
-});
+Route::get ('/', function(){
+    return view('index');
+})-> name('index');
 
-Route::get('/testview', function () {
-    return view('testview');
-});
+Route::get ('/products', function(){
+    return view('products_index');
+})-> name('products');
 
-Route::get('/texto', function () {
-    echo "Hi world";
-    echo "<h1> Hola mundo </h1>";
-});
+Route::get ('/clients', function(){
+    return view('clients_index');
+})-> name('clients');
 
-Route::get('/echo', function () {
-    echo view('test2');
-});
-
-Route::get('/MasRutas', function () {
-    return "Podemos tener las rutas tipo GET, POST, DELETE, PATCH";
-});
-
-
-
-Route::get('/custom', function () {
-    $msj=" Mensaje desde el servidor ";
-    $id=" 500 ";
-    return view('custom',['msj'=>$msj, "identi"=>$id ,"A"=>29]);
-});
-
-Route::get('/contact', function () {
-    return view('contacto');
-}) -> name('contact');
-
-
-
-Route::get('/testdb', [TestController::class, 'test']);
+Route::get ('/sales', function(){
+    return view('sales_index');
+})-> name('sales');

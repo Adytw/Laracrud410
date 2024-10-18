@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Testview</title>
+    <title>Laracrud </title>
 </head>
-<body style ="background: rgb(101, 69, 149)">
-    <h1> Vista Test View </h1>
+<body style="background-color: rgb(225, 210, 180)">
+    @include('fragments.navbar')
+
+    @yield('content')
+
 </body>
 </html>
