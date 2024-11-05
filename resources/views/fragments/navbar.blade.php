@@ -37,7 +37,7 @@
     <nav>
         <p>
             <a href=" {{route('index')}}">Inicio </a>
-            <a href="  {{route('products')}}">productos </a>
+            <a href="  {{route('products.index')}}">productos </a>
             <a href="  {{route('clients')}}">Clientes</a>
             <a href="  {{route('sales')}}">Ventas</a>
         </p>
