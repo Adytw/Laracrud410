@@ -11,7 +11,7 @@
         border-radius: 12px;
         margin-block: auto;
         margin-inline: auto;
-        background-color: #447a6e;
+        background-color: #88a6bd;
     }
     form label{
         width: 140px;
@@ -37,7 +37,7 @@
         border: 1px solid black;
         border-radius: 5px;
         display: block;
-        color: #fffff;
+        color: white;
         background-color: black;
 
     }

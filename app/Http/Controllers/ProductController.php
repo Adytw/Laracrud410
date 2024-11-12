@@ -12,8 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view ('products_index');
-        echo "Index Productos";
+        $products = Product::get(); //obtener todos los datos de la tabla        
+        return view ('products_index', compact('products'));
+        //echo "Index Productos";
     }
 
     /**
@@ -32,10 +33,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        echo "Store Productos";
+        //echo "Registro realizado";
        // dd($request);
 
        Product::create($request->all());
+       return to_route('products.index')-> with ('status', 'Producto Registrado');
     }
 
     /**
@@ -44,6 +46,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         echo "Show Productos";
+        return view ('products_show', compact('product'));
     }
 
     /**

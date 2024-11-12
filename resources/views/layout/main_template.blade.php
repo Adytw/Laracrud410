@@ -6,8 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laracrud </title>
 </head>
-<body style="background-color: rgb(225, 210, 180)">
+<body style="background-color: rgb(191, 166, 188)">
     @include('fragments.navbar')
+
+    @if (session('status'))
+    {{session('status')}}
+    @endif
 
     @yield('content')
 

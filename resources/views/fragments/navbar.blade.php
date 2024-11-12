@@ -20,7 +20,7 @@
     }
     
     nav p a{
-        color:lemonchiffon;
+        color:rgb(218, 199, 221);
         text-decoration: none;
         padding-block: 10px;
         padding-inline: 10px;

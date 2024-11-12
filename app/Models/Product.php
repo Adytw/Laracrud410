@@ -13,7 +13,7 @@ class Product extends Model
         'nameProduct',
         'brand_id',
         'stock',
-        'unit-price',
+        'unit_price',
         'imagen'
     ];
 }
