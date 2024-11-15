@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Brand;
+
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Brand;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -12,9 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get(); //obtener todos los datos de la tabla        
-        return view ('products_index', compact('products'));
-        //echo "Index Productos";
+
+        $products = Product::get(); //obtener todos los datos de la tabla
+        return view('products_index', compact('products'));
+        //echo "Index productos";
+
     }
 
     /**
@@ -22,10 +26,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-       // $brands = Brand::get(); //para obtener todoslos datos de un modelo o tabla
-       $brands = Brand::pluck('id', 'brand');//obtener datos especificos 
-       // dd($brands);
-        return view ('products_create', compact('brands'));
+
+        //$brands=Brand::get();
+        //dd($brands); //verificar que los datos se esten extrayendo
+        $brands=Brand::pluck('id','brand'); //ob¿tener datos especificos
+        //dd($brands); //verificar datos que se extraen
+        return view('products_create', compact('brands'));
     }
 
     /**
@@ -33,11 +39,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //echo "Registro realizado";
+       // echo "Registro realizado";
        // dd($request);
-
+       //dd($request->all());
        Product::create($request->all());
-       return to_route('products.index')-> with ('status', 'Producto Registrado');
+       return to_route('products.index') -> with('status', 'Producto registrado');
     }
 
     /**
@@ -45,8 +51,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        echo "Show Productos";
-        return view ('products_show', compact('product'));
+        
+        return view('products_show', compact('product'));
     }
 
     /**
@@ -54,7 +60,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        echo "Edit Productos";
+        $brands=Brand::pluck('id','brand'); //ob¿tener datos especificos
+        return view('products_edit', compact('brands','product'));
+      
     }
 
     /**
@@ -62,7 +70,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        echo "Update Productos";
+
+        $product->update($request->all()); // actualizamos los datos en la base de datos
+        return to_route('products.index') -> with('status', 'Producto Actualizado');
     }
 
     /**
@@ -70,6 +80,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        echo "Destroy Productos";
+        $product->delete();
+        return to_route('products.index') -> with('status', 'Producto Eliminado');
+       // echo "Destroy productos";
+    }
+
+    public function delete(Product $product)
+    {
+        echo view('products_delete', compact('product'));
+
     }
 }
+

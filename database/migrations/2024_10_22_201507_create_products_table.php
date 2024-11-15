@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('brand_id');
          //   $table->string('brand', 40)->nullable()->default('marca');
             $table->integer('stock')->unsigned()->nullable()->default(12);
-            $table->decimal('unit-price', 6, 2)->nullable()->default(123.45);
+            $table->decimal('unit_price', 6, 2)->nullable()->default(123.45);
             $table->string('imagen', 100)->nullable()->default('imagen');
 
             $table->timestamps();

@@ -47,3 +47,6 @@ Route::get ('/clients', function(){
 Route::get ('/sales', function(){
     return view('sales_index');
 })-> name('sales');
+
+Route:: resource ('/brands', App\Http\Controllers\BrandController::class);
+Route::get('/products/{product}/delete', [App\Http\Controllers\ProductController::class,'delete'])-> name('products.delete');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Http\Controllers\Controller;
 
 class BrandController extends Controller
 {
@@ -12,7 +14,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::get(); //obtener todos los datos de la tabla
+        return view('brand_index', compact('brands'));
+        //echo "Index productos";
     }
 
     /**
@@ -20,7 +24,9 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        $brands=Brand::pluck('brand','description'); //ob¿tener datos especificos
+        //dd($brands); //verificar datos que se extraen
+        return view('brand_create', compact('brands'));
     }
 
     /**
@@ -28,7 +34,8 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       Brand::create($request->all());
+       return to_route('brands.index') -> with('status', 'Marca registrado');
     }
 
     /**
