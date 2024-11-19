@@ -50,3 +50,8 @@ Route::get ('/sales', function(){
 
 Route:: resource ('/brands', App\Http\Controllers\BrandController::class);
 Route::get('/products/{product}/delete', [App\Http\Controllers\ProductController::class,'delete'])-> name('products.delete');
+
+Route::resource('clients', App\Http\Controllers\ClienteController::class);
+Route::resource('sales', App\Http\Controllers\SaleController::class);
+
+

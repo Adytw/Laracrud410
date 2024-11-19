@@ -15,7 +15,7 @@
     <select name= "brand_id">
         <option value =" ">Selecciona...</option>
 
-@foreach($brands as $brand => $id)
+        @foreach($brands as $brand => $id)
         <option value="{{$id}}">{{$brand}}</option>
 @endforeach 
     </select>

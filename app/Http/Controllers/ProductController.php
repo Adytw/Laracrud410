@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
 
         $products = Product::get(); //obtener todos los datos de la tabla
-        return view('products_index', compact('products'));
+        return view('admin/products/create', compact('products'));
         //echo "Index productos";
 
     }
@@ -31,7 +31,7 @@ class ProductController extends Controller
         //dd($brands); //verificar que los datos se esten extrayendo
         $brands=Brand::pluck('id','brand'); //ob¿tener datos especificos
         //dd($brands); //verificar datos que se extraen
-        return view('products_create', compact('brands'));
+        return view('admin/products/create', compact('brands'));
     }
 
     /**
@@ -52,7 +52,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         
-        return view('products_show', compact('product'));
+        return view('admin/products/show', compact('product'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $brands=Brand::pluck('id','brand'); //ob¿tener datos especificos
-        return view('products_edit', compact('brands','product'));
+        return view('admin/products/edit', compact('brands','product'));
       
     }
 
@@ -87,7 +87,7 @@ class ProductController extends Controller
 
     public function delete(Product $product)
     {
-        echo view('products_delete', compact('product'));
+        echo view('', compact('product'));
 
     }
 }
